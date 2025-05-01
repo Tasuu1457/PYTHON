@@ -1,0 +1,6 @@
+a = int(input("Enter a number: "))
+b = int(input("Enter another number: "))
+print("Add: ", a+b)
+print("Subtract: ", a-b)
+print("Multiply: ", a*b)
+print("Divide: ", a/b)
