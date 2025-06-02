@@ -1,5 +1,4 @@
 n = int(input("Enter last number: "))
-s = 0
-for i in range(1, n - 1):
-    s = i + s
-print("Result = ", s)
+l = ''
+for i in range(n, 0, -1):
+    print(i, l)
