@@ -9,9 +9,9 @@ def check_the_winner(board, player):
     for i in range(3):
         if all(board[i][j] == player for j in range(3)) or all(board[j][i] == player for j in range(3)):
             return True
-        if all(board[i][i] == player for i in range(3)) or all(board[i][2-i] == player for i in range(3)):
+    if all(board[i][i] == player for i in range(3)) or all(board[i][2-i] == player for i in range(3)):
             return True
-        return False
+    return False
     
 def is_full(board):
     return all(cell != " " for row in board for cell in row)
@@ -34,7 +34,7 @@ def get_computer_move(board):
                     return(i, j)
                 board[i][j] = " "
                 
-        empty_cells = [(i, j) for i in range(3) if board[i][j] == " "]
+        empty_cells = [(i, j) for i in range(3) for j in range(3) if board[i][j] == " "]
         return random.choice(empty_cells) if empty_cells else None
 
 def tic_tac_toe():
@@ -66,15 +66,17 @@ def tic_tac_toe():
                     continue
                 if board[row][col] != " ":
                     print("Cell is already taken! Choose another.")
-                continue
+                    continue
             except ValueError:
-                print("Tnvalid input!Please enter a number between 1 and 3 or 'q' to quit.")
+                print("Invalid input!Please enter a number between 1 and 3 or 'q' to quit.")
                 continue
         else:
             print("Computer's turn (O):")
             move = get_computer_move(board)
             if move:
                 row, col = move
+                print(f"Computer chooses row {row+1} and coloumn {col+1}")
+            else:
                 print("No moves left for commputer.")
                 break
         
